@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="دليل طلابي تجريبي للفعاليات الثقافية والرياضية والتقنية في الجامعة الافتراضية السورية">
+    <title>جميع الفعاليات | دليل الفعاليات</title>
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" onerror="this.onerror=null;this.href='assets/vendor/bootstrap.rtl.min.css'">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">تجاوز إلى المحتوى</a>
+    <div class="top-note">مساحتك لاكتشاف الأنشطة واللقاءات الطلابية<a href="events.html">اكتشف أجندة تشرين الثاني ←</a>
+    </div>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md container" aria-label="التنقل الرئيسي">
+        <a class="navbar-brand brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="3"></rect>
+              <path d="M16 3v4M8 3v4M3 11h18M8 15h2M14 15h2"></path>
+            </svg>
+          </span>
+          <span>دليل الفعاليات<small>الجامعة الافتراضية السورية</small>
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="فتح قائمة التنقل">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link " href="index.html">الرئيسية</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="events.html">الفعاليات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="about.html">عن الدليل</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="contact.html">اتصل بنا</a>
+            </li>
+          </ul>
+          <a class="btn btn-outline-primary nav-cta" href="contact.html?subject=event">اقترح فعالية <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main id="main-content">
+      <section class="page-intro container">
+        <p class="eyebrow">أجندة الجامعة</p>
+        <h1>خطّط لوقتك الجاي.</h1>
+        <p>اختر ما يناسب اهتمامك، مكانك، والوقت المتاح لك.</p>
+      </section>
+      <section class="container" aria-label="البحث والفلترة">
+        <form class="filter-box" id="filter-form">
+          <div class="row g-3 align-items-end">
+            <div class="col-md-6 col-lg-3">
+              <label class="form-label" for="search">ابحث عن فعالية</label>
+              <input class="form-control" type="search" id="search" placeholder="عنوان، كلمة، أو مكان…">
+            </div>
+            <div class="col-6 col-lg-2">
+              <label class="form-label" for="category">التصنيف</label>
+              <select class="form-select" id="category">
+                <option value="">كل التصنيفات</option>
+                <option>ثقافة</option>
+                <option>تقنية</option>
+                <option>رياضة</option>
+                <option>موسيقى</option>
+                <option>عائلي</option>
+              </select>
+            </div>
+            <div class="col-6 col-lg-2">
+              <label class="form-label" for="location">المكان</label>
+              <select class="form-select" id="location">
+                <option value="">كل الأماكن</option>
+                <option>دمشق</option>
+                <option>حمص</option>
+                <option>حلب</option>
+                <option>عبر الإنترنت</option>
+              </select>
+            </div>
+            <div class="col-6 col-lg-2">
+              <label class="form-label" for="date">ابتداءً من</label>
+              <input class="form-control" id="date" type="date">
+            </div>
+            <div class="col-6 col-lg-3">
+              <button class="btn btn-outline-primary w-100" type="reset">مسح الفلاتر</button>
+            </div>
+          </div>
+          <label class="remember-option">
+            <input type="checkbox" class="form-check-input" id="remember-category"> تذكّر تصنيفي المفضل على هذا المتصفح</label>
+        </form>
+      </section>
+      <section class="container section-space">
+        <div class="section-heading">
+          <h2 class="small-heading">جميع المواعيد</h2>
+          <p id="result-count" role="status" class="result-count"></p>
+        </div>
+        <div class="row g-4" id="events-list"></div>
+        <div id="empty-events" class="empty-state" hidden>
+          <h3>ما لقينا فعالية بهالخيارات.</h3>
+          <p>جرّب تصنيفاً آخر أو وسّع نطاق البحث.</p>
+          <button type="button" id="clear-search" class="btn btn-primary">عرض جميع الفعاليات</button>
+        </div>
+      </section>
+      <section class="container mb-5">
+        <div class="paper-note">
+          <h2>قبل ما تختار موعدك</h2>
+          <p>هذه أجندة تجريبية للمشروع وليست برنامجاً رسمياً. المواعيد والأماكن الواردة فيها للتوضيح فقط.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-5">
+            <a class="brand footer-brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true">
+                <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="16" rx="3"></rect>
+                  <path d="M16 3v4M8 3v4M3 11h18M8 15h2M14 15h2"></path>
+                </svg>
+              </span>
+              <span>دليل الفعاليات<small>نلتقي، نتعلم، ونصنع ذكريات.</small>
+              </span>
+            </a>
+            <p>مساحة طلابية لاكتشاف ما يجمعنا خارج المحاضرات.</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <h2>روابط الدليل</h2>
+            <a href="events.html">جميع الفعاليات</a>
+            <a href="about.html">عن المشروع وفريقه</a>
+            <a href="contact.html">تواصل معنا</a>
+          </div>
+          <div class="col-6 col-md-4">
+            <h2>ابقَ على تواصل</h2>
+            <a href="mailto:events@example.com">events@example.com</a>
+            <div class="social-links">
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            </div>
+            <small>البريد توضيحي، وروابط التواصل للمنصات العامة.</small>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 دليل فعاليات الجامعة الافتراضية — مشروع BWP401</span>
+          <span>الفعاليات والأماكن المعروضة بيانات تجريبية.</span>
+        </div>
+      </div>
+    </footer>
+    <button class="back-top" type="button" aria-label="العودة إلى أعلى الصفحة" hidden>↑</button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" onerror="this.onerror=null;this.src='assets/vendor/bootstrap.bundle.min.js'"></script>
+    <script src="assets/js/team.js"></script>
+    <script src="assets/js/events-data.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
